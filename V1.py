@@ -14,7 +14,7 @@ def selectionScreen():
 	print('2. Rot-13')
 	print('3. Exit')
 
-	tool = raw_input('\n')
+	tool = input('\n')
 
 	if tool == '1':
 		import JohnPollard

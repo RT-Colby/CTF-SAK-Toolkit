@@ -5,7 +5,7 @@ shift = 0
 iterate = 0
 
 for elem in cipher:
-	ciphergrid[1] = elem
+	ciphergrid[iterate] = elem
 	iterate = iterate + 1
 
 for x in ciphergrid:
