@@ -1,5 +1,6 @@
 import time
 import sys
+from JohnPollard import *
 
 
 
@@ -14,10 +15,12 @@ def selectionScreen():
 	print('2. Rot-13')
 	print('3. Exit')
 
-	tool = input('\n')
+	tool = raw_input()
 
 	if tool == '1':
-		import JohnPollard
+		number = input('Please enter a number\n')
+		print(pollard_P_1(number))
+		sys.exit(0)
 	if tool == '2':
 		print('not done yet')
 	if tool == '3':
@@ -26,7 +29,6 @@ def selectionScreen():
 	else:
 		print('Invalid Selection, Try again')
 		selectionScreen()
-
 
 
 

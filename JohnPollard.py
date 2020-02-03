@@ -1,18 +1,18 @@
 import math
 
 
-
+#test number 1829, answer is (31,59)
 def pollard_P_1(n):
     z = []
     prime = []
     for num in range(2,10000):
-    	primes = True
-    	for i in range(2,num):
-        	if (num%i==0):
-            		primes = False
-            		z.append(num)
-   		if primes:
-        		prime.append(num)
+        primes = True
+        for i in range(2,num):
+            if (num%i==0):
+                    primes = False
+                    z.append(num)
+        if primes:
+                prime.append(num)
 
     def gcd(a, b):
         if b == 0:
@@ -58,4 +58,4 @@ def pollard_P_1(n):
             if(i >= len(z)):
                 return 0, None
 
-print(pollard_P_1(1829))
+
