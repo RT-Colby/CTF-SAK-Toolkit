@@ -22,7 +22,7 @@ master.iconbitmap(r'assets\blue-SAK.ico')
 
 
 #Methods
-def buttonClick():
+def jpButonClick():
 	if jpEntry.get() == '':
 		messagebox.showerror('Required Field', 'Please enter the number for n')
 	else:
@@ -58,12 +58,14 @@ menuNB.grid(row = 0)
 
 
 #TOU Windoow
-welcome_label = Label(touSheet, text='Welcome to the CTF Swiss Army Knife Toolkit!\n Created by Colby Frey', font=('Rouge', 14)) 
+welcome_label = Label(touSheet, text='Welcome to the CTF Swiss Army Knife Toolkit!\n Created by Colby Frey\n', font=('Rouge', 14)) 
+help_label = Label(touSheet, text='special thanks to Jackson Elsmore for helping contribute to the project')
 termsOfUseLabel = Label(touSheet, text='By clicking the "I agree" button you agree to the terms of use', font=('Rouge',11))
 touLinkLabel = Label(touSheet, text='Link to terms of use', font=('Rouge', 11), fg='blue')
 agreeButton = Button(touSheet, text='I agree', font=('Rouge', 9), command=agreeClick,padx=100, pady=5, bd=3)
 #TOU Grid
 welcome_label.grid(row=1, column=0, padx=25, pady=25)
+help_label.grid(row = 2 )
 termsOfUseLabel.grid(row=2, column=0, padx=25)
 touLinkLabel.grid()
 agreeButton.grid()
@@ -72,7 +74,7 @@ touLinkLabel.bind("<Button-1>", lambda e: callback("https://github.com/RT-Colby/
 #RSA Window
 jpUsageLabel = Label(rsaSheet, text='John Pollard p-1 attack')
 jpEntry = Entry(rsaSheet, borderwidth=2)
-runJP = Button(rsaSheet, text='Run JohnPollard!', command=buttonClick)
+runJP = Button(rsaSheet, text='Run JohnPollard!', command=jpButonClick)
 rsaLabel = Label(rsaSheet, text='')
 #JPGrid
 jpUsageLabel.grid()
