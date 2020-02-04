@@ -27,7 +27,7 @@ def buttonClick():
 		messagebox.showerror('Required Field', 'Please enter the number for n')
 	else:
 		text = pollard_P_1(int(jpEntry.get()))
-		pLabel = Label(jpSheet, text=text)
+		pLabel = Label(rsaSheet, text=text)
 		pLabel.grid(row = 5)
 
 def restWindow():
@@ -44,16 +44,16 @@ def agreeClick():
 	agreeWindow.iconbitmap(r'assets\blue-SAK.ico')
 	agreedLabel=Label(agreeWindow, text='Thank you for agreeing to the terms of use, you may now use the program freely. \n You may now close this window', font=('Rouge', 10))
 	agreedLabel.pack()
-	menuNB.tab(jpSheet,state='normal')
+	menuNB.tab(rsaSheet,state='normal')
 def callback(url):
     webbrowser.open_new(url)
 
 #Notebook
 menuNB = tkrtk.Notebook(master)
 touSheet = tkrtk.Frame(menuNB)
-jpSheet = tkrtk.Frame(menuNB)
+rsaSheet = tkrtk.Frame(menuNB)
 menuNB.add(touSheet, text = "Terms of Use")
-menuNB.add(jpSheet, text = "John Pollard", state='hidden')
+menuNB.add(rsaSheet, text = "John Pollard", state='hidden')
 menuNB.grid(row = 0)
 
 
@@ -69,10 +69,11 @@ touLinkLabel.grid()
 agreeButton.grid()
 touLinkLabel.bind("<Button-1>", lambda e: callback("https://github.com/RT-Colby/CTF-SAK-Toolkit/blob/master/README.md"))
 
-#JP Window
-jpUsageLabel = Label(jpSheet, text='To run a John Pollard attack input the n value into the text box')
-jpEntry = Entry(jpSheet, borderwidth=2)
-runJP = Button(jpSheet, text='Run JohnPollard!', command=buttonClick)
+#RSA Window
+jpUsageLabel = Label(rsaSheet, text='John Pollard p-1 attack')
+jpEntry = Entry(rsaSheet, borderwidth=2)
+runJP = Button(rsaSheet, text='Run JohnPollard!', command=buttonClick)
+rsaLabel = Label(rsaSheet, text='')
 #JPGrid
 jpUsageLabel.grid()
 jpEntry.grid(row=1)
