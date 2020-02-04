@@ -4,6 +4,7 @@ import sys
 import os
 from JohnPollard import *
 import webbrowser
+from tkinter import messagebox
 
 
 #Initalize intial values
@@ -14,7 +15,7 @@ entriesList = []
 
 #Create window
 master = Tk()
-master.title('CTF SAK-Toolkit')
+master.title('CTF SAK Toolkit')
 master.geometry('500x300')
 master.iconbitmap(r'assets\blue-SAK.ico')
 
@@ -22,9 +23,12 @@ master.iconbitmap(r'assets\blue-SAK.ico')
 
 #Methods
 def buttonClick():
-	text = pollard_P_1(int(jpEntry.get()))
-	pLabel = Label(jpSheet, text=text)
-	pLabel.grid(row = 5)
+	if jpEntry.get() == '':
+		messagebox.showerror('Required Field', 'Please enter the number for n')
+	else:
+		text = pollard_P_1(int(jpEntry.get()))
+		pLabel = Label(jpSheet, text=text)
+		pLabel.grid(row = 5)
 
 def restWindow():
 	for label in labelsList:
@@ -35,7 +39,7 @@ def restWindow():
 		entriesList.destory()
 def agreeClick():
 	agreeWindow = Tk()
-	agreeWindow.title('CTF SAK-Toolkit')
+	agreeWindow.title('CTF SAK Toolkit')
 	agreeWindow.geometry('500x100')
 	agreeWindow.iconbitmap(r'assets\blue-SAK.ico')
 	agreedLabel=Label(agreeWindow, text='Thank you for agreeing to the terms of use, you may now use the program freely. \n You may now close this window', font=('Rouge', 10))
@@ -71,8 +75,8 @@ jpEntry = Entry(jpSheet, borderwidth=2)
 runJP = Button(jpSheet, text='Run JohnPollard!', command=buttonClick)
 #JPGrid
 jpUsageLabel.grid()
-runJP.grid(row=1, padx=50, pady=25)
-jpEntry.grid(row=2)
+jpEntry.grid(row=1)
+runJP.grid(row=2, padx=20, pady=20)
 
 
 #Loop
