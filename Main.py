@@ -3,14 +3,14 @@ import tkinter.ttk as tkrtk
 import sys
 import os
 from JohnPollard import *
+from CaesarCipher import * 
 import webbrowser
 from tkinter import messagebox
 
 
 #Initalize intial values
-labelsList = []
-buttonsList = []
-entriesList = []
+sheetList = []
+
 
 
 #Create window
@@ -45,15 +45,23 @@ def agreeClick():
 	agreedLabel=Label(agreeWindow, text='Thank you for agreeing to the terms of use, you may now use the program freely. \n You may now close this window', font=('Rouge', 10))
 	agreedLabel.pack()
 	menuNB.tab(rsaSheet,state='normal')
+	menuNB.tab(ccSheet,state='normal')
 def callback(url):
     webbrowser.open_new(url)
+def ccClick():
+		text = bfDecrypt(ccCipherText.get())
+		pLabel = Label(rsaSheet, text=text)
+		pLabel.grid(row = 5)
+
 
 #Notebook
 menuNB = tkrtk.Notebook(master)
 touSheet = tkrtk.Frame(menuNB)
 rsaSheet = tkrtk.Frame(menuNB)
+ccSheet = tkrtk.Frame(menuNB)
 menuNB.add(touSheet, text = "Terms of Use")
 menuNB.add(rsaSheet, text = "John Pollard", state='hidden')
+menuNB.add(ccSheet, text = "Caesar Cipher", state='hidden')
 menuNB.grid(row = 0)
 
 
@@ -80,6 +88,18 @@ rsaLabel = Label(rsaSheet, text='')
 jpUsageLabel.grid()
 jpEntry.grid(row=1)
 runJP.grid(row=2, padx=20, pady=20)
+
+#Ceaser Cipher Window
+ccUsageLabel = Label(ccSheet, text='Ceaser Cipher')
+ccCipherText = Entry(ccSheet, borderwidth=2)
+key = Entry(ccSheet, borderwidth=2)
+runCC = Button(ccSheet, text='Run Ceaser Cipher!', command=ccClick)
+#JPGrid
+ccUsageLabel.grid()
+ccCipherText.grid(row=1)
+#key.grid(row=2, padx=20, pady=20)
+runCC.grid(row=2)
+
 
 
 #Loop
