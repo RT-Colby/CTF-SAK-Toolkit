@@ -15,7 +15,7 @@ def selectionScreen():
 	print('2. Rot-13')
 	print('3. Exit')
 
-	tool = raw_input()
+	tool = input()
 
 	if tool == '1':
 		number = input('Please enter a number\n')
