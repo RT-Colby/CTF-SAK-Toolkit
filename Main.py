@@ -49,8 +49,8 @@ def agreeClick():
 def callback(url):
     webbrowser.open_new(url)
 def ccClick():
-		text = bfDecrypt(ccCipherText.get())
-		pLabel = Label(rsaSheet, text=text)
+		text = encrypt(1,ccCipherText.get(),1)
+		pLabel = Label(ccSheet, text=text)
 		pLabel.grid(row = 5)
 
 

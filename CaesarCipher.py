@@ -18,7 +18,7 @@ def encrypt(mode,cipherText,key):
 					value %= 26
 					value += 65
 				out += chr(value)
-	print(out)
+	return(out)
 
 def bfDecrypt(ciphertext):
 	dictionary = ["the","be","to","of","and","a","in","that","have","I","it","for","not","on","with","as","you","do","flag","at","this","over","would","there","will","he","she","person","than","then","you","your","what","is"]
@@ -86,4 +86,6 @@ def decrypt(mode,cipherText,key):
 				value += 65
 			out += chr(value)
 	print(out)
+
+print(bfDecrypt('tnzr'))
    
