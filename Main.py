@@ -90,19 +90,18 @@ jpEntry.grid(row=1)
 runJP.grid(row=2, padx=20, pady=20)
 
 #Ceaser Cipher Window
-ccUsageLabel = Label(ccSheet, text='Ceaser Cipher')
-ccTextEntryLabel = Label(ccSheet, text='Enter the text you want to encrypt/decrypt')
-ccKeyEntryLabel = Label(ccSheet, text='Enter the shift you want to encrypt/decrypt')
+ccUsageLabel = Label(ccSheet, text='Enter the text and the key you want to encrypt/decrypt')
+ccTextEntryLabel = Label(ccSheet, text='Cipher Text')
+ccKeyEntryLabel = Label(ccSheet, text='Rotation Key')
 ccCipherText = Entry(ccSheet, borderwidth=2)
 key = Entry(ccSheet, borderwidth=2)
 runCC = Button(ccSheet, text='Run Ceaser Cipher!', command=ccClick)
 #JPGrid
-ccUsageLabel.grid()
+ccUsageLabel.grid(row=1)
 ccTextEntryLabel.grid(row=2)
-ccCipherText.grid(row=2)
-ccCipherText.place(x=20)
-ccKeyEntryLabel.grid(row=3)
-key.grid(row=4)
+ccCipherText.grid(row=3)
+ccKeyEntryLabel.grid(row=4)
+key.grid(row=5)
 runCC.grid()
 
 
