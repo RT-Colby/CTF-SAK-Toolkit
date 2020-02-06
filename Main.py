@@ -49,7 +49,7 @@ def agreeClick():
 def callback(url):
     webbrowser.open_new(url)
 def ccClick():
-		text = encrypt(1,ccCipherText.get(),1)
+		text = decrypt(ccCipherText.get(),3)
 		pLabel = Label(ccSheet, text=text)
 		pLabel.grid(row = 5)
 
@@ -91,14 +91,19 @@ runJP.grid(row=2, padx=20, pady=20)
 
 #Ceaser Cipher Window
 ccUsageLabel = Label(ccSheet, text='Ceaser Cipher')
+ccTextEntryLabel = Label(ccSheet, text='Enter the text you want to encrypt/decrypt')
+ccKeyEntryLabel = Label(ccSheet, text='Enter the shift you want to encrypt/decrypt')
 ccCipherText = Entry(ccSheet, borderwidth=2)
 key = Entry(ccSheet, borderwidth=2)
 runCC = Button(ccSheet, text='Run Ceaser Cipher!', command=ccClick)
 #JPGrid
 ccUsageLabel.grid()
-ccCipherText.grid(row=1)
-#key.grid(row=2, padx=20, pady=20)
-runCC.grid(row=2)
+ccTextEntryLabel.grid(row=2)
+ccCipherText.grid(row=2)
+ccCipherText.place(x=20)
+ccKeyEntryLabel.grid(row=3)
+key.grid(row=4)
+runCC.grid()
 
 
 

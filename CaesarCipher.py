@@ -42,9 +42,9 @@ def bfDecrypt(ciphertext):
 					value += 26
 					value %= 26
 					value += 65
-					out += chr(value)
-					outs.append([out,0])
-					print(out + "\tkey of " + str(i))
+				out += chr(value)
+		outs.append([out,0])
+		print(out + "\tkey of " + str(i))
 	print()
 	print("############################")
 	print("#     PROBABILITY MAP      #")
@@ -64,7 +64,7 @@ def bfDecrypt(ciphertext):
 				print(bep[0] + "\t prob of: " + str(maximum - i) + " vs " + str(maximum))
         #print()
 
-def decrypt(mode,cipherText,key):
+def decrypt(cipherText,key):
     #shift = int(input("loop?"))
 	out = ""
 	for letter in cipherText:
@@ -85,7 +85,5 @@ def decrypt(mode,cipherText,key):
 				value %= 26
 				value += 65
 			out += chr(value)
-	print(out)
-
-print(bfDecrypt('tnzr'))
+	return(out)
    
