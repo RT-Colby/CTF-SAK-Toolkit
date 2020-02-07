@@ -49,7 +49,7 @@ def agreeClick():
 def callback(url):
     webbrowser.open_new(url)
 def ccClick():
-		text = decrypt(ccCipherText.get(),3)
+		text = decrypt(ccEntryCipherText.get(),3)
 		pLabel = Label(ccSheet, text=text)
 		pLabel.grid(row = 5)
 
@@ -90,19 +90,20 @@ jpEntry.grid(row=1)
 runJP.grid(row=2, padx=20, pady=20)
 
 #Ceaser Cipher Window
-ccUsageLabel = Label(ccSheet, text='Enter the text and the key you want to encrypt/decrypt')
-ccTextEntryLabel = Label(ccSheet, text='Cipher Text')
-ccKeyEntryLabel = Label(ccSheet, text='Rotation Key')
-ccCipherText = Entry(ccSheet, borderwidth=2)
-key = Entry(ccSheet, borderwidth=2)
+ccUsageLabel = Label(ccSheet, text='Enter the text and the key below')
+ccTextLabel = Label(ccSheet, text='Cipher Text')
+ccKeyLabel = Label(ccSheet, text='Rotation Key')
+ccEntryCipherText = Entry(ccSheet, borderwidth=2)
+ccEntryKey = Entry(ccSheet, borderwidth=2)
 runCC = Button(ccSheet, text='Run Ceaser Cipher!', command=ccClick)
-#JPGrid
-ccUsageLabel.grid(row=1)
-ccTextEntryLabel.grid(row=2)
-ccCipherText.grid(row=3)
-ccKeyEntryLabel.grid(row=4)
-key.grid(row=5)
-runCC.grid()
+
+#CCGrid
+ccUsageLabel.grid(column=1)
+ccTextLabel.grid(row=2,column=0)
+ccEntryCipherText.grid(row=2, column=1)
+ccKeyLabel.grid(row=3,column=0)
+ccEntryKey.grid(row=3,column=1)
+runCC.grid(row=4,column=1)
 
 
 
