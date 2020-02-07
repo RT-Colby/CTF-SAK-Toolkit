@@ -86,4 +86,3 @@ def decrypt(cipherText,key):
 				value += 65
 			out += chr(value)
 	return(out)
-   

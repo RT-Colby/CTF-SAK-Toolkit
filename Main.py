@@ -48,10 +48,23 @@ def agreeClick():
 	menuNB.tab(ccSheet,state='normal')
 def callback(url):
     webbrowser.open_new(url)
-def ccClick():
-		text = decrypt(ccEntryCipherText.get(),3)
-		pLabel = Label(ccSheet, text=text)
-		pLabel.grid(row = 5)
+def ccDecryptClick():
+		ct = ccEntryCipherText.get()
+		output = ""
+		if ccEntryKey.get() == "":
+			output = bfDecrypt(ct)
+			pLabel = Label(ccSheet,text=output)
+		else:
+			key = int(ccEntryKey.get())
+			output=decrypt(ct,key)
+			outputLabel = Label(ccSheet, text=output)
+			outputLabel.grid(row = 5)
+def ccEncryptClick():
+	ct = ccEntryCipherText.get()
+	key = int(ccEntryKey.get())
+	output = encrypt(1,ct,key)
+	outputLabel = Label(ccSheet, text=output)
+	outputLabel.grid(row = 5)
 
 
 #Notebook
@@ -68,8 +81,8 @@ menuNB.grid(row = 0)
 #TOU Windoow
 welcome_label = Label(touSheet, text='Welcome to the CTF Swiss Army Knife Toolkit!\n Created by Colby Frey\n', font=('Rouge', 14)) 
 help_label = Label(touSheet, text='special thanks to Jackson Elsmore for helping contribute to the project')
-termsOfUseLabel = Label(touSheet, text='By clicking the "I agree" button you agree to the terms of use', font=('Rouge',11))
-touLinkLabel = Label(touSheet, text='Link to terms of use', font=('Rouge', 11), fg='blue')
+termsOfUseLabel = Label(touSheet, text='By clicking the "I agree" button you agree to not pull an Austin ', font=('Rouge',11))
+touLinkLabel = Label(touSheet, text='Link to README', font=('Rouge', 11), fg='blue')
 agreeButton = Button(touSheet, text='I agree', font=('Rouge', 9), command=agreeClick,padx=100, pady=5, bd=3)
 #TOU Grid
 welcome_label.grid(row=1, column=0, padx=25, pady=25)
@@ -95,7 +108,8 @@ ccTextLabel = Label(ccSheet, text='Cipher Text')
 ccKeyLabel = Label(ccSheet, text='Rotation Key')
 ccEntryCipherText = Entry(ccSheet, borderwidth=2)
 ccEntryKey = Entry(ccSheet, borderwidth=2)
-runCC = Button(ccSheet, text='Run Ceaser Cipher!', command=ccClick)
+runDecrypt = Button(ccSheet, text='Decrypt', command=ccDecryptClick)
+runEncrypt = Button(ccSheet, text='Encrypt', command=ccEncryptClick)
 
 #CCGrid
 ccUsageLabel.grid(column=1)
@@ -103,8 +117,8 @@ ccTextLabel.grid(row=2,column=0)
 ccEntryCipherText.grid(row=2, column=1)
 ccKeyLabel.grid(row=3,column=0)
 ccEntryKey.grid(row=3,column=1)
-runCC.grid(row=4,column=1)
-
+runDecrypt.grid(row=4,column=1)
+runEncrypt.grid(row=4, column=0)
 
 
 #Loop
