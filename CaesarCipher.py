@@ -45,23 +45,10 @@ def bfDecrypt(ciphertext):
 				out += chr(value)
 		outs.append([out,0])
 		print(out + "\tkey of " + str(i))
-	print()
-	print("############################")
-	print("#     PROBABILITY MAP      #")
-	print("############################")
-	for bep in outs:
-		for word in bep[0].split(" "):
-			for probword in dictionary:
-				if word == probword:
-					bep[1] += 1
 	maximum = 0
 	for bep in outs:
 		if bep[1] > maximum:
 			maximum = bep[1]
-	for i in range(0, maximum + 1):
-		for bep in outs:
-			if bep[1] == maximum - i:
-				print(bep[0] + "\t prob of: " + str(maximum - i) + " vs " + str(maximum))
         #print()
 
 def decrypt(cipherText,key):
@@ -86,3 +73,5 @@ def decrypt(cipherText,key):
 				value += 65
 			out += chr(value)
 	return(out)
+  
+print(bfDecrypt('test'))

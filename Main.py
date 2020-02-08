@@ -12,13 +12,11 @@ from tkinter import messagebox
 sheetList = []
 
 
-
 #Create window
 master = Tk()
 master.title('CTF SAK Toolkit')
 master.geometry('500x300')
 master.iconbitmap(r'assets\blue-SAK.ico')
-
 
 
 #Methods
@@ -65,7 +63,6 @@ def ccEncryptClick():
 	output = encrypt(1,ct,key)
 	outputLabel = Label(ccSheet, text=output)
 	outputLabel.grid(row = 5)
-
 
 #Notebook
 menuNB = tkrtk.Notebook(master)
