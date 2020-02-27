@@ -2,10 +2,18 @@ from tkinter import *
 import tkinter.ttk as tkrtk
 import sys
 import os
-from JohnPollard import *
-from CaesarCipher import * 
 import webbrowser
 from tkinter import messagebox
+
+#Imports files to build GUI
+from GUI.WindowJohnPollard import *
+#from GUI.AccessMethods import *
+
+#Imports crypto files and scripts
+from Crypto.JohnPollard import *
+from Crypto.CaesarCipher import * 
+from Crypto.NumberSystem import *
+
 
 
 #Initalize intial values
@@ -20,6 +28,7 @@ master.iconbitmap(r'assets\blue-SAK.ico')
 
 
 #Methods
+
 def jpButonClick():
 	if jpEntry.get() == '':
 		messagebox.showerror('Required Field', 'Please enter the number for n')
@@ -64,6 +73,7 @@ def ccEncryptClick():
 	outputLabel = Label(ccSheet, text=output)
 	outputLabel.grid(row = 5)
 
+
 #Notebook
 menuNB = tkrtk.Notebook(master)
 touSheet = tkrtk.Frame(menuNB)
@@ -81,6 +91,7 @@ help_label = Label(touSheet, text='special thanks to Jackson Elsmore for helping
 termsOfUseLabel = Label(touSheet, text='By clicking the "I agree" button you agree to not pull an Austin ', font=('Rouge',11))
 touLinkLabel = Label(touSheet, text='Link to README', font=('Rouge', 11), fg='blue')
 agreeButton = Button(touSheet, text='I agree', font=('Rouge', 9), command=agreeClick,padx=100, pady=5, bd=3)
+
 #TOU Grid
 welcome_label.grid(row=1, column=0, padx=25, pady=25)
 help_label.grid(row = 2 )
@@ -94,6 +105,7 @@ jpUsageLabel = Label(rsaSheet, text='John Pollard p-1 attack')
 jpEntry = Entry(rsaSheet, borderwidth=2)
 runJP = Button(rsaSheet, text='Run JohnPollard!', command=jpButonClick)
 rsaLabel = Label(rsaSheet, text='')
+
 #JPGrid
 jpUsageLabel.grid()
 jpEntry.grid(row=1)

@@ -32,5 +32,5 @@ def decimalToAnything(convert,newsystem):
     return output
 
 #print(decimalToHex(int(input("put in da thinger\t"))))
-print(decimalToAnything(int(input("put in da thinger1\t")),int(input("put in da thinger2\t"))))
-print(anythingToDecimal(input("you know\t"),int(input("the drill\t"))))
+#print(decimalToAnything(int(input("put in da thinger1\t")),int(input("put in da thinger2\t"))))
+#print(anythingToDecimal(input("you know\t"),int(input("the drill\t"))))

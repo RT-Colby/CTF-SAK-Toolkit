@@ -74,4 +74,3 @@ def decrypt(cipherText,key):
 			out += chr(value)
 	return(out)
   
-print(bfDecrypt('test'))
