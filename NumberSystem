@@ -23,12 +23,12 @@ def decimalToAnything(convert,newsystem):
     output = ""
     for i in range(0,bep):
         thingy = str(int((convert / newsystem**i) % newsystem))
-        colbyisadirtyfrickinwhitepersoncrackerasscoppromotinworthlessrichboi = thingy
+        convertVar = thingy
         if int(thingy) > 9:
             thingy = int(thingy)
             thingy += 55
-            colbyisadirtyfrickinwhitepersoncrackerasscoppromotinworthlessrichboi = str(chr(thingy))
-        output = colbyisadirtyfrickinwhitepersoncrackerasscoppromotinworthlessrichboi + output
+            convertVar = str(chr(thingy))
+        output = convertVar + output
     return output
 
 #print(decimalToHex(int(input("put in da thinger\t"))))
