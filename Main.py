@@ -6,8 +6,9 @@ import webbrowser
 from tkinter import messagebox
 
 #Imports files to build GUI
+from GUI.BaseWindow import * 
 from GUI.WindowJohnPollard import *
-#from GUI.AccessMethods import *
+from GUI.AccessMethods import *
 
 #Imports crypto files and scripts
 from Crypto.JohnPollard import *
@@ -15,7 +16,7 @@ from Crypto.CaesarCipher import *
 from Crypto.NumberSystem import *
 
 
-
+"""
 #Initalize intial values
 sheetList = []
 
@@ -72,7 +73,6 @@ def ccEncryptClick():
 	output = encrypt(1,ct,key)
 	outputLabel = Label(ccSheet, text=output)
 	outputLabel.grid(row = 5)
-
 
 #Notebook
 menuNB = tkrtk.Notebook(master)
@@ -132,3 +132,4 @@ runEncrypt.grid(row=4, column=0)
 
 #Loop
 master.mainloop()
+"""
