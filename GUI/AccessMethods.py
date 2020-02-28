@@ -8,7 +8,7 @@ from Crypto.NumberSystem import *
 import webbrowser
 from tkinter import messagebox
 
-
+#test
 #Methods
 def jpButonClick():
 	if jpEntry.get() == '':
