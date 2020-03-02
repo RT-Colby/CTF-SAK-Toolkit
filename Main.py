@@ -16,7 +16,7 @@ from Crypto.CaesarCipher import *
 from Crypto.NumberSystem import *
 
 
-"""
+
 #Initalize intial values
 sheetList = []
 
@@ -132,4 +132,3 @@ runEncrypt.grid(row=4, column=0)
 
 #Loop
 master.mainloop()
-"""
