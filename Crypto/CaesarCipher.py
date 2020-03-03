@@ -45,9 +45,8 @@ def bfDecrypt(ciphertext):
 					value += 65
 				out += chr(value) 
 		#Solves the wrong rotation issue on print by rearranging the values
-		keyof += 26
-		if(keyOf  > 26):
-
+		#keyof += 26
+		#if(keyOf  > 26):
 		#Outputs the code into a format array that tkinter can read	
 		toTkinter = out + " \tkey of " + str(i)
 		outs.append(toTkinter)

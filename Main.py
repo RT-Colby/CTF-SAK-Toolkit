@@ -53,25 +53,34 @@ def ccDecryptClick():
 		ct = ccEntryCipherText.get()
 		output = ""
 		counter = 0
-		if ccEntryKey.get() == "":
+		if ccEntryKey.get() == '' :
 			output = bfDecrypt(ct)
 			#CC Brute Force List
 			bfList = Listbox(ccSheet)
+			bfListLabel = Label(ccSheet, text='Results from decryption')
 			for x in output:
 				bfList.insert(counter, x)
 				counter += 1
-			bfList.grid(row=5,column=1)
+			bfListLabel.grid(row = 4, column = 0)
+			bfList.grid(row=4,column=1)
+		elif ccEntryKey.get().isalpha() or ccEntryKey.get().isalnum():
+			messagebox.showerror('Required Field', 'Please enter a valid decryption key')
 		else:
 			key = int(ccEntryKey.get())
 			output=decrypt(ct,key)
 			outputLabel = Label(ccSheet, text=output)
-			outputLabel.grid(row = 5)
+			outputLabel.grid(row = 4)
+
 def ccEncryptClick():
-	ct = ccEntryCipherText.get()
-	key = int(ccEntryKey.get())
-	output = encrypt(1,ct,key)
-	outputLabel = Label(ccSheet, text=output)
-	outputLabel.grid(row = 5)
+	if ccEntryKey.get() == '' or ccEntryKey.get().isalpha() or ccEntryKey.get().isalnum():
+		messagebox.showerror('Required Field', 'Please enter a valid encryption key')
+	else:
+		ct = ccEntryCipherText.get()
+		key = int(ccEntryKey.get())
+		output = encrypt(1,ct,key)
+		outputLabel = Label(ccSheet, text=output)
+		outputLabel.grid(row = 5)
+
 
 #Notebook
 menuNB = tkrtk.Notebook(master)
@@ -82,7 +91,6 @@ menuNB.add(touSheet, text = "Terms of Use")
 menuNB.add(rsaSheet, text = "John Pollard", state='hidden')
 menuNB.add(ccSheet, text = "Caesar Cipher", state='hidden')
 menuNB.grid(row = 0)
-
 
 
 #TOU Windoow
@@ -128,9 +136,6 @@ ccKeyLabel.grid(row=3,column=0)
 ccEntryKey.grid(row=3,column=1)
 runDecrypt.grid(row=4,column=1)
 runEncrypt.grid(row=4, column=0)
-
-
-
 
 
 
