@@ -47,6 +47,7 @@ def agreeClick():
 	agreedLabel.pack()
 	menuNB.tab(rsaSheet,state='normal')
 	menuNB.tab(ccSheet,state='normal')
+	menuNB.tab(nsSheet,state='normal')
 def callback(url):
     webbrowser.open_new(url)
 def ccDecryptClick():
@@ -57,11 +58,9 @@ def ccDecryptClick():
 			output = bfDecrypt(ct)
 			#CC Brute Force List
 			bfList = Listbox(ccSheet)
-			bfListLabel = Label(ccSheet, text='<---- Results from decryption')
 			for x in output:
 				bfList.insert(counter, x)
 				counter += 1
-			bfListLabel.grid(row = 5, column = 3)
 			bfList.grid(row=5,column=1)
 		elif ccEntryKey.get().isalpha():
 			messagebox.showerror('Required Field', 'Please enter a valid decryption key')
@@ -72,6 +71,8 @@ def ccDecryptClick():
 				messagebox.showerror('Required Field', 'Please enter a valid encryption key')
 				return
 			output=decrypt(ct,key)
+			ccEntryCipherText.delete(0, END)
+			ccEntryCipherText.insert(0, output)
 			outputLabel = Label(ccSheet, text=output, state='active')
 			resultsLabel = Label(ccSheet, text='Output from decrypt= ')
 			resultsLabel.grid(row= 4, column =2)
@@ -79,7 +80,7 @@ def ccDecryptClick():
 
 def ccEncryptClick():
 	if ccEntryKey.get() == '' or ccEntryKey.get().isalpha():
-		messagebox.showerror('Required Field', 'Please enter a valid encryption key fuckface')
+		messagebox.showerror('Required Field', 'Please enter a valid encryption key')
 	else:
 		try:
 			key = int(ccEntryKey.get())
@@ -88,6 +89,8 @@ def ccEncryptClick():
 			return
 		ct = ccEntryCipherText.get()
 		output = encrypt(1,ct,key)
+		ccEntryCipherText.delete(0, END)
+		ccEntryCipherText.insert(0, output)
 		outputLabel = Label(ccSheet, text=output)
 		resultsLabel = Label(ccSheet, text='Output from encrypt')
 		resultsLabel.grid(row= 4, column =2)
@@ -99,9 +102,12 @@ menuNB = tkrtk.Notebook(master)
 touSheet = tkrtk.Frame(menuNB)
 rsaSheet = tkrtk.Frame(menuNB)
 ccSheet = tkrtk.Frame(menuNB)
+nsSheet = tkrtk.Frame(menuNB)
+
 menuNB.add(touSheet, text = "Terms of Use")
-menuNB.add(rsaSheet, text = "John Pollard", state='hidden')
-menuNB.add(ccSheet, text = "Caesar Cipher", state='hidden')
+menuNB.add(rsaSheet, text = "RSA Attacks", state='hidden')
+menuNB.add(ccSheet, text = "Caesar Ciphers", state='hidden')
+menuNB.add(nsSheet, text = "Number Systems", state='hidden')
 menuNB.grid(row = 0)
 
 
