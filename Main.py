@@ -5,21 +5,14 @@ import os
 import webbrowser
 from tkinter import messagebox
 
-#Imports files to build GUI
-from GUI.BaseWindow import * 
-from GUI.WindowJohnPollard import *
-from GUI.AccessMethods import *
-
 #Imports crypto files and scripts
 from Crypto.JohnPollard import *
 from Crypto.CaesarCipher import * 
 from Crypto.NumberSystem import *
 
-
-
+	
 #Initalize intial values
 sheetList = []
-
 
 #Create window
 master = Tk()
@@ -59,9 +52,15 @@ def callback(url):
 def ccDecryptClick():
 		ct = ccEntryCipherText.get()
 		output = ""
+		counter = 0
 		if ccEntryKey.get() == "":
 			output = bfDecrypt(ct)
-			pLabel = Label(ccSheet,text=output)
+			#CC Brute Force List
+			bfList = Listbox(ccSheet)
+			for x in output:
+				bfList.insert(counter, x)
+				counter += 1
+			bfList.grid(row=5,column=1)
 		else:
 			key = int(ccEntryKey.get())
 			output=decrypt(ct,key)
@@ -83,6 +82,7 @@ menuNB.add(touSheet, text = "Terms of Use")
 menuNB.add(rsaSheet, text = "John Pollard", state='hidden')
 menuNB.add(ccSheet, text = "Caesar Cipher", state='hidden')
 menuNB.grid(row = 0)
+
 
 
 #TOU Windoow
@@ -128,6 +128,10 @@ ccKeyLabel.grid(row=3,column=0)
 ccEntryKey.grid(row=3,column=1)
 runDecrypt.grid(row=4,column=1)
 runEncrypt.grid(row=4, column=0)
+
+
+
+
 
 
 #Loop
