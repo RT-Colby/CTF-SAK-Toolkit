@@ -57,29 +57,41 @@ def ccDecryptClick():
 			output = bfDecrypt(ct)
 			#CC Brute Force List
 			bfList = Listbox(ccSheet)
-			bfListLabel = Label(ccSheet, text='Results from decryption')
+			bfListLabel = Label(ccSheet, text='<---- Results from decryption')
 			for x in output:
 				bfList.insert(counter, x)
 				counter += 1
-			bfListLabel.grid(row = 4, column = 0)
-			bfList.grid(row=4,column=1)
-		elif ccEntryKey.get().isalpha() or ccEntryKey.get().isalnum():
+			bfListLabel.grid(row = 5, column = 3)
+			bfList.grid(row=5,column=1)
+		elif ccEntryKey.get().isalpha():
 			messagebox.showerror('Required Field', 'Please enter a valid decryption key')
 		else:
-			key = int(ccEntryKey.get())
+			try:
+				key = int(ccEntryKey.get())
+			except:
+				messagebox.showerror('Required Field', 'Please enter a valid encryption key')
+				return
 			output=decrypt(ct,key)
-			outputLabel = Label(ccSheet, text=output)
-			outputLabel.grid(row = 4)
+			outputLabel = Label(ccSheet, text=output, state='active')
+			resultsLabel = Label(ccSheet, text='Output from decrypt= ')
+			resultsLabel.grid(row= 4, column =2)
+			outputLabel.grid(row = 4, column = 3)
 
 def ccEncryptClick():
-	if ccEntryKey.get() == '' or ccEntryKey.get().isalpha() or ccEntryKey.get().isalnum():
-		messagebox.showerror('Required Field', 'Please enter a valid encryption key')
+	if ccEntryKey.get() == '' or ccEntryKey.get().isalpha():
+		messagebox.showerror('Required Field', 'Please enter a valid encryption key fuckface')
 	else:
+		try:
+			key = int(ccEntryKey.get())
+		except:
+			messagebox.showerror('Required Field', 'Please enter a valid encryption key')
+			return
 		ct = ccEntryCipherText.get()
-		key = int(ccEntryKey.get())
 		output = encrypt(1,ct,key)
 		outputLabel = Label(ccSheet, text=output)
-		outputLabel.grid(row = 5)
+		resultsLabel = Label(ccSheet, text='Output from encrypt')
+		resultsLabel.grid(row= 4, column =2)
+		outputLabel.grid(row = 4, column = 3)
 
 
 #Notebook
