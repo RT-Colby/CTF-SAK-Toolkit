@@ -12,7 +12,7 @@ def anythingToDecimal(num,numsystem): # num is number you want to convert (Strin
                 letter -= 55
             output += letter * numsystem ** (len(num) - i - 1)
         else:
-            print(int(num[i]) * numsystem ** (len(num) -i - 1))
+            #print(int(num[i]) * numsystem ** (len(num) -i - 1))
             output += int(num[i]) * numsystem ** (len(num) -i - 1)
     return output
 

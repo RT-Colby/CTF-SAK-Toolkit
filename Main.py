@@ -95,6 +95,20 @@ def ccEncryptClick():
 		resultsLabel = Label(ccSheet, text='Output from encrypt')
 		resultsLabel.grid(row= 4, column =2)
 		outputLabel.grid(row = 4, column = 3)
+def runAtoDClick():
+	if nsNumberTextEntry.get() == '' or nsNumberBaseEntry.get() == '' or nsNumberTextEntry.get().isalpha() or nsNumberBaseEntry.get().isalpha():
+		messagebox.showerror('Required Field', 'Please enter valid values')
+	else:
+		text = anythingToDecimal(nsNumberTextEntry.get(),int(nsNumberBaseEntry.get()))
+		nsResultsEntry.delete(0, END)
+		nsResultsEntry.insert(0, text)
+def runDtoAClick():
+	if nsNumberTextEntry.get() == '' or nsNumberBaseEntry.get() == '' or nsNumberTextEntry.get().isalpha() or nsNumberBaseEntry.get().isalpha():
+		messagebox.showerror('Required Field', 'Please enter valid values')
+	else:
+		text = decimalToAnything(int(nsNumberTextEntry.get()),int(nsNumberBaseEntry.get()))
+		nsResultsEntry.delete(0, END)
+		nsResultsEntry.insert(0, text)
 
 
 #Notebook
@@ -155,7 +169,27 @@ ccEntryKey.grid(row=3,column=1)
 runDecrypt.grid(row=4,column=1)
 runEncrypt.grid(row=4, column=0)
 
+#Number Systems Window
+nsUsageLabel = Label(nsSheet, text='Enter the number and what base it is in')
+nsTextLabel = Label(nsSheet, text='Number Text')
+nsKeyLabel = Label(nsSheet, text='Number Base')
+nsResultsLabel = Label(nsSheet, text='Output: ')
+nsNumberTextEntry = Entry(nsSheet, borderwidth=2)
+nsNumberBaseEntry = Entry(nsSheet, borderwidth=2)
+runAnythingToDecimal = Button(nsSheet, text='To Decimal', command=runAtoDClick)
+runDecimalToAnything = Button(nsSheet, text='To Any Base', command=runDtoAClick)
+nsResultsEntry = Entry(nsSheet, borderwidth=2)
 
+#Number Systems Grid
+nsUsageLabel.grid(column=1)
+nsTextLabel.grid(row=2,column=0)
+nsNumberTextEntry.grid(row=2, column=1)
+nsKeyLabel.grid(row=3,column=0)
+nsNumberBaseEntry.grid(row=3,column=1)
+runAnythingToDecimal.grid(row=4,column=1, pady=10)
+runDecimalToAnything.grid(row=4, column=0, pady=10)
+nsResultsLabel.grid(row=5, column=0)
+nsResultsEntry.grid(row=5, column=1)
 
 #Loop
 master.mainloop()
