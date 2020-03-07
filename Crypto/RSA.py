@@ -1,6 +1,5 @@
-p = 31
-q = 59
-
+#p = 31
+#q = 59
 def RSA_P_Q(p, q):
 	n = p*q
 	phi = (p-1)*(q-1)
