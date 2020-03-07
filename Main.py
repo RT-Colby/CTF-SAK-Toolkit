@@ -9,6 +9,7 @@ from tkinter import messagebox
 from Crypto.JohnPollard import *
 from Crypto.CaesarCipher import * 
 from Crypto.NumberSystem import *
+from Crypto.RSACalculatorPQ import *
 
 	
 #Initalize intial values
