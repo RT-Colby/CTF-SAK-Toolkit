@@ -11,10 +11,6 @@ from Crypto.CaesarCipher import *
 from Crypto.NumberSystem import *
 from Crypto.RSACalculatorPQ import *
 
-	
-#Initalize intial values
-sheetList = []
-
 #Create window
 master = Tk()
 master.title('CTF SAK Toolkit')
@@ -149,11 +145,11 @@ rsaCalcLabel = Label(rsaSheet, text='')
 rsaCalcPEntry = Entry(rsaSheet, borderwidth=1,width=10)
 rsaCalcQEntry = Entry(rsaSheet, borderwidth=1,width=10)
 
-#JPGrid
+#RSA Grid
 jpUsageLabel.grid(row=0)
 jpEntry.grid(row=1)
 runJP.grid(row=1, column=1, padx=10)
-rsaCalcPEntry.grid()
+rsaCalcPEntry.grid(pady=5)
 rsaCalcQEntry.grid(row=2,column=1)
 
 #Ceaser Cipher Window
