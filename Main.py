@@ -138,19 +138,23 @@ welcome_label.grid(row=1, column=0, padx=25, pady=25)
 help_label.grid(row = 2 )
 termsOfUseLabel.grid(row=2, column=0, padx=25)
 touLinkLabel.grid()
-agreeButton.grid()
+agreeButton.grid(pady=20)
 touLinkLabel.bind("<Button-1>", lambda e: callback("https://github.com/RT-Colby/CTF-SAK-Toolkit/blob/master/README.md"))
 
 #RSA Window
 jpUsageLabel = Label(rsaSheet, text='John Pollard p-1 attack')
 jpEntry = Entry(rsaSheet, borderwidth=2)
 runJP = Button(rsaSheet, text='Run JohnPollard!', command=jpButonClick)
-rsaLabel = Label(rsaSheet, text='')
+rsaCalcLabel = Label(rsaSheet, text='')
+rsaCalcPEntry = Entry(rsaSheet, borderwidth=1,width=10)
+rsaCalcQEntry = Entry(rsaSheet, borderwidth=1,width=10)
 
 #JPGrid
-jpUsageLabel.grid()
+jpUsageLabel.grid(row=0)
 jpEntry.grid(row=1)
-runJP.grid(row=2, padx=20, pady=20)
+runJP.grid(row=1, column=1, padx=10)
+rsaCalcPEntry.grid()
+rsaCalcQEntry.grid(row=2,column=1)
 
 #Ceaser Cipher Window
 ccUsageLabel = Label(ccSheet, text='Enter the text and the key below')
