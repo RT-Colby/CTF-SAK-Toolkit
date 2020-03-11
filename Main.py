@@ -141,16 +141,17 @@ touLinkLabel.bind("<Button-1>", lambda e: callback("https://github.com/RT-Colby/
 jpUsageLabel = Label(rsaSheet, text='John Pollard p-1 attack')
 jpEntry = Entry(rsaSheet, borderwidth=2)
 runJP = Button(rsaSheet, text='Run JohnPollard!', command=jpButonClick)
-rsaCalcLabel = Label(rsaSheet, text='')
-rsaCalcPEntry = Entry(rsaSheet, borderwidth=1,width=10)
-rsaCalcQEntry = Entry(rsaSheet, borderwidth=1,width=10)
+rsaCalcLabel = Label(rsaSheet, text='Insert Q')
+rsaCalcPEntry = Entry(rsaSheet, borderwidth=1)
+rsaCalcQEntry = Entry(rsaSheet, borderwidth=1)
 
 #RSA Grid
-jpUsageLabel.grid(row=0)
-jpEntry.grid(row=1)
-runJP.grid(row=1, column=1, padx=10)
-rsaCalcPEntry.grid(pady=5)
-rsaCalcQEntry.grid(row=2,column=1)
+rsaCalcLabel.grid(row=0, column=0, padx=5)
+rsaCalcPEntry.grid(row=0,column=1,pady=10, padx=5)
+rsaCalcQEntry.grid(row=0,column=12, padx=5)
+jpUsageLabel.grid(row=1)
+jpEntry.grid(row=2)
+runJP.grid(row=2, column=1, padx=10)
 
 #Ceaser Cipher Window
 ccUsageLabel = Label(ccSheet, text='Enter the text and the key below')
@@ -194,3 +195,4 @@ nsResultsEntry.grid(row=5, column=1)
 
 #Loop
 master.mainloop()
+
