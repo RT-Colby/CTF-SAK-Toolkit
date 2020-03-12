@@ -20,13 +20,26 @@ master.iconbitmap(r'assets\blue-SAK.ico')
 
 #Methods
 
+#RSA Methods
 def jpButonClick():
 	if jpEntry.get() == '':
 		messagebox.showerror('Required Field', 'Please enter the number for n')
 	else:
 		text = pollard_P_1(int(jpEntry.get()))
-		pLabel = Label(rsaSheet, text=text)
-		pLabel.grid(row = 5)
+		jpEntry.delete(0, END)
+		jpEntry.insert(0, text)
+def rsaCalcClick():
+	output = ''
+	counter = 0
+	if rsaCalcPEntry.get() == '' or rsaCalcQEntry.get() == ''  or rsaCalcQEntry.get().isalpha() or rsaCalcPEntry.get().isalpha():
+		messagebox.showerror('Required Field', 'Please enter a valid input')
+	else:
+		output = rsa(int(rsaCalcQEntry.get()), int(rsaCalcPEntry.get()))
+		rsaCalcList = Listbox(rsaSheet)
+		for x in output:
+			rsaCalcList.insert(counter, x)
+			counter += 1
+		rsaCalcList.grid(row=5,column=1)
 
 def restWindow():
 	for label in labelsList:
@@ -141,15 +154,18 @@ touLinkLabel.bind("<Button-1>", lambda e: callback("https://github.com/RT-Colby/
 jpUsageLabel = Label(rsaSheet, text='John Pollard p-1 attack')
 jpEntry = Entry(rsaSheet, borderwidth=2)
 runJP = Button(rsaSheet, text='Run JohnPollard!', command=jpButonClick)
-rsaCalcLabel = Label(rsaSheet, text='Insert Q')
+rsaCalcLabel = Label(rsaSheet, text='Q on left and P on right')
 rsaCalcPEntry = Entry(rsaSheet, borderwidth=1)
 rsaCalcQEntry = Entry(rsaSheet, borderwidth=1)
+rsaCalc = Button(rsaSheet, text='Calculate', command=rsaCalcClick)
 
 #RSA Grid
 rsaCalcLabel.grid(row=0, column=0, padx=5)
 rsaCalcPEntry.grid(row=0,column=1,pady=10, padx=5)
-rsaCalcQEntry.grid(row=0,column=12, padx=5)
+rsaCalcQEntry.grid(row=0,column=2, padx=5)
 jpUsageLabel.grid(row=1)
+rsaCalc.grid(row=0, column=3, padx= 15)
+
 jpEntry.grid(row=2)
 runJP.grid(row=2, column=1, padx=10)
 

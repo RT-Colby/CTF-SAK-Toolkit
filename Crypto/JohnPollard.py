@@ -54,7 +54,8 @@ def pollard_P_1(n):
             if(y != 1):
                 p = y
                 q = n//y
-                return p, q
+                pStr = str(p) + ","
+                return pStr, str(q)
             if(i >= len(z)):
                 return 0, None
 

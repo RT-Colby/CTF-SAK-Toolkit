@@ -63,6 +63,7 @@ def findED(r, execptionNumber):
 	return e,d,k 
 
 def rsa(p,q):
+
 	#check if p and q are prime
 	if isPrime(p) and isPrime(q):
 		n = p*q
@@ -73,6 +74,7 @@ def rsa(p,q):
 		if 	finalCheckPrime(e,d,n,r,ed) == False:
 			execptionNumbers.append(k)
 			e,d,k = findED(r,execptionNumbers)
-			return e,d,n,r,k
+			output = ['e = ' + str(e),'d = ' + str(ed),'n = ' + str(n),'r = ' + str(r),'k = ' + str(k)]
+			return output
 	else:
 		exit()
