@@ -15,7 +15,9 @@ from Crypto.RSACalculatorPQ import *
 master = Tk()
 master.title('CTF SAK Toolkit')
 master.geometry('500x300')
-master.iconbitmap(r'assets\blue-SAK.ico')
+
+if "nt" == os.name:
+    master.iconbitmap("blueicon.xbm")
 
 
 #Methods
@@ -52,7 +54,8 @@ def agreeClick():
 	agreeWindow = Tk()
 	agreeWindow.title('CTF SAK Toolkit')
 	agreeWindow.geometry('500x100')
-	agreeWindow.iconbitmap(r'assets\blue-SAK.ico')
+	if "nt" == os.name:
+		master.iconbitmap("blueicon.xbm")
 	agreedLabel=Label(agreeWindow, text='Thank you for agreeing to the terms of use, you may now use the program freely. \n You may now close this window', font=('Rouge', 10))
 	agreedLabel.pack()
 	menuNB.tab(rsaSheet,state='normal')
